@@ -1,0 +1,21 @@
+{
+  "name": "inferno-playground",
+  "version": "0.0.1",
+  "description": "A simple Inferno app, using Redux for state management. Supports server rendering.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "James Wright <james@jamesswright.co.uk>",
+  "license": "ISC",
+  "dependencies": {
+    "inferno": "1.0.0-beta31",
+    "inferno-component": "1.0.0-beta31",
+    "inferno-create-element": "1.0.0-beta31",
+    "inferno-server": "1.0.0-beta31"
+  },
+  "devDependencies": {
+    "babel-cli": "6.18.0",
+    "babel-plugin-inferno": "1.2.0-beta13"
+  }
+}
