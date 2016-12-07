@@ -1,0 +1,5 @@
+{
+    "events": {
+        "restart": "mkdir -p dist/assets && ./node_modules/.bin/browserify dist/app/browser.js -o dist/assets/app.js"
+    }
+}

@@ -7,7 +7,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "watch": "babel src --watch --out-dir dist & nodemon dist/server --watch dist"
+    "watch": "babel src --watch --out-dir dist & nodemon dist/server --watch {app,server}"
   },
   "author": "James Wright <james@jamesswright.co.uk>",
   "license": "ISC",
@@ -15,11 +15,13 @@
     "inferno": "1.0.0-beta31",
     "inferno-component": "1.0.0-beta31",
     "inferno-create-element": "1.0.0-beta31",
+    "inferno-redux": "1.0.0-beta31",
     "inferno-server": "1.0.0-beta31"
   },
   "devDependencies": {
     "babel-cli": "6.18.0",
     "babel-plugin-inferno": "1.2.0-beta13",
+    "browserify": "13.1.1",
     "nodemon": "1.11.0"
   }
 }
