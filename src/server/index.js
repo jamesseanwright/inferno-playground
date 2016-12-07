@@ -2,8 +2,6 @@
 
 const http = require('http');
 const url = require('url');
-const Inferno = require('inferno');
-const InfernoServer = require('inferno-server');
 const routes = require('./routes');
 const server = http.createServer(handleRequest);
 

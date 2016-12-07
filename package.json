@@ -4,7 +4,8 @@
   "description": "A simple Inferno app, using Redux for state management. Supports server rendering.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "watch": "babel src --watch --out-dir dist & nodemon dist/server --watch dist"
   },
   "author": "James Wright <james@jamesswright.co.uk>",
   "license": "ISC",
@@ -16,6 +17,7 @@
   },
   "devDependencies": {
     "babel-cli": "6.18.0",
-    "babel-plugin-inferno": "1.2.0-beta13"
+    "babel-plugin-inferno": "1.2.0-beta13",
+    "nodemon": "^1.11.0"
   }
 }
