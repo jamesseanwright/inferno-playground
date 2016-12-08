@@ -2,7 +2,10 @@
 
 const Inferno = require('inferno');
 const InfernoServer = require('inferno-server');
-const InitialisedApplication = require('../app/InitialisedApplication');
+const { createStore } = require('redux');
+const createApp = require('../app/createApp');
+const reducers = require('../app/reducers');
+const store = createStore(reducers);
 
 module.exports = function renderView() {
     return `
@@ -14,8 +17,13 @@ module.exports = function renderView() {
             </head>
 
             <body>
+                <script>
+                    window.APP = {
+                        state: ${JSON.stringify(store.getState())}
+                    };
+                </script>
                 <section role="main">
-                    ${InfernoServer.renderToString(<InitialisedApplication />)}
+                    ${InfernoServer.renderToString(createApp(store))}
                 </section>
 
                 <script src="/index.js"></script>
