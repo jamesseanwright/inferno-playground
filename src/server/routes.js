@@ -1,6 +1,13 @@
 'use strict';
 
 const view = require('./view');
+const { createStore, applyMiddleware } = require('redux');
+const reducers = require('../app/reducers');
+const actions = require('../app/actions');
+
+const store = createStore(reducers);
+
+actions.listenForTransactions(store.dispatch);
 
 module.exports = new Map([
     ['/', function index(req, res) {
@@ -8,7 +15,7 @@ module.exports = new Map([
             'Content-Type': 'text/html'
         });
 
-        res.end(view(), 'utf-8');
+        res.end(view(store), 'utf-8');
     }],
 
     ['notFound', function notFound(req, res) {

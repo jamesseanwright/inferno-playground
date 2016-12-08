@@ -2,12 +2,9 @@
 
 const Inferno = require('inferno');
 const InfernoServer = require('inferno-server');
-const { createStore } = require('redux');
 const createApp = require('../app/createApp');
-const reducers = require('../app/reducers');
-const store = createStore(reducers);
 
-module.exports = function renderView() {
+module.exports = function renderView(store) {
     return `
         <!DOCTYPE html>
         <html>

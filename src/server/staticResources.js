@@ -17,7 +17,7 @@ module.exports = {
     get(pathname) {
         const filePath = pathname.match(FILE_PATH_STRUCTURE) || [];
 
-        const [_, fileName, extension] = filePath;
+        const [, fileName, extension] = filePath;
 
         if (!fileName || !extension || cachedResources.has(fileName)) {
             return Promise.resolve(cachedResources.get(fileName));
@@ -25,7 +25,7 @@ module.exports = {
 
         return this._readFromFileSystem(fileName)
             .then(buffer => buffer)
-            .catch(() => null) // not found on fs - still cached to avoid subsequent reads
+            .catch(() => null) // not found on fs - still cached to avoid subsequent disk reads
             .then(result => {
                 const resThunk = this._createResThunk(extension, result);
                 cachedResources.set(fileName, resThunk);
