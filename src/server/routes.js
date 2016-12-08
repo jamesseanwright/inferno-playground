@@ -17,5 +17,13 @@ module.exports = new Map([
         });
 
         res.end('Not found', 'utf-8');
+    }],
+
+    ['serverError', function serverError(req, res) {
+        res.writeHead(500, {
+            'Content-Type': 'text/plain'
+        });
+
+        res.end('Internal server error', 'utf-8');
     }]
 ]);

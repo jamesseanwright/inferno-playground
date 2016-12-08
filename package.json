@@ -6,8 +6,9 @@
   "readme": "README.md",
   "main": "index.js",
   "scripts": {
+    "build-client-js": "mkdir -p dist/assets && ./node_modules/.bin/browserify dist/app/index.js > dist/assets/index.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "watch": "babel src --watch --out-dir dist & nodemon dist/server --watch {app,server}"
+    "watch": "babel src --watch --out-dir dist & nodemon dist/server --watch dist/{app,server}"
   },
   "author": "James Wright <james@jamesswright.co.uk>",
   "license": "ISC",

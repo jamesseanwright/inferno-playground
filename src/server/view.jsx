@@ -17,6 +17,8 @@ module.exports = function renderView() {
                 <section role="main">
                     ${InfernoServer.renderToString(<App class="app" />)}
                 </section>
+
+                <script src="/index.js"></script>
             </body>
         </html>
     `.trim().replace(/\s{4,}/g, ''); // Minify HTML
