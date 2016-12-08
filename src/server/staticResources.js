@@ -15,28 +15,21 @@ const DEFAULT_CONTENT_TYPE = 'text/plain';
 
 module.exports = {
     get(pathname) {
-        const filePath = pathname.match(FILE_PATH_STRUCTURE);
-
-        if (!filePath || filePath.length !== 3) {
-            return Promise.resolve(null);
-        }
+        const filePath = pathname.match(FILE_PATH_STRUCTURE) || [];
 
         const [_, fileName, extension] = filePath;
 
-        if (cachedResources.has(fileName)) {
+        if (!fileName || !extension || cachedResources.has(fileName)) {
             return Promise.resolve(cachedResources.get(fileName));
         }
 
         return this._readFromFileSystem(fileName)
-            .then(buffer => {
-                const resThunk = this._createResThunk(extension, buffer);
+            .then(buffer => buffer)
+            .catch(() => null) // not found on fs - still cached to avoid subsequent reads
+            .then(result => {
+                const resThunk = this._createResThunk(extension, result);
                 cachedResources.set(fileName, resThunk);
                 return resThunk;
-            })
-            .catch(() => {
-                // if non-static path is requested again as static asset, then it will still be cached
-                cachedResources.set(fileName, null);
-                return null;
             });
     },
 
