@@ -28,8 +28,16 @@ module.exports = {
         }
 
         return this._readFromFileSystem(fileName)
-            .then(buffer => cachedResources.set(fileName, this._createResThunk(extension, buffer)))
-            .catch(cachedResources.set(fileName, null)); // if path is requested again as static asset, then it will still be memoised
+            .then(buffer => {
+                const resThunk = this._createResThunk(extension, buffer);
+                cachedResources.set(fileName, resThunk);
+                return resThunk;
+            })
+            .catch(() => {
+                // if non-static path is requested again as static asset, then it will still be cached
+                cachedResources.set(fileName, null);
+                return null;
+            });
     },
 
     _readFromFileSystem(fileName) {
