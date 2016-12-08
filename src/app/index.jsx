@@ -1,6 +1,6 @@
 'use strict';
 
 const Inferno = require('inferno');
-const App = require('./components/App');
+const InitialisedApplication = require('./InitialisedApplication');
 
-Inferno.render(<App />, document.querySelector('section[role="main"]'));
+Inferno.render(<InitialisedApplication />, document.querySelector('section[role="main"]'));

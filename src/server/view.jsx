@@ -2,7 +2,7 @@
 
 const Inferno = require('inferno');
 const InfernoServer = require('inferno-server');
-const App = require('../app/components/App');
+const InitialisedApplication = require('../app/InitialisedApplication');
 
 module.exports = function renderView() {
     return `
@@ -15,7 +15,7 @@ module.exports = function renderView() {
 
             <body>
                 <section role="main">
-                    ${InfernoServer.renderToString(<App class="app" />)}
+                    ${InfernoServer.renderToString(<InitialisedApplication />)}
                 </section>
 
                 <script src="/index.js"></script>

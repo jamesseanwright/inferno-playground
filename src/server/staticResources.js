@@ -29,7 +29,7 @@ module.exports = {
 
         return this._readFromFileSystem(fileName)
             .then(buffer => cachedResources.set(fileName, this._createResThunk(extension, buffer)))
-            .catch(cachedResources.set(fileName, null)); // if path is requested again as static asset, then remaining chain will be skipped on subsequent reqs
+            .catch(cachedResources.set(fileName, null)); // if path is requested again as static asset, then it will still be memoised
     },
 
     _readFromFileSystem(fileName) {

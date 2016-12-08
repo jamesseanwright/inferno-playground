@@ -9,12 +9,12 @@ const server = http.createServer(handleRequest);
 const PORT = 3000;
 
 function handleRequest(req, res) {
-    const pathname = url.parse(req.url).pathname;
+    const { pathname } = url.parse(req.url);
 
     staticResources.get(pathname)
-        .then(serveResource => {
-            if (serveResource) {
-                serveResource(req, res);
+        .then(serveStaticResource => {
+            if (serveStaticResource) {
+                serveStaticResource(req, res);
                 return;
             }
 
