@@ -7,7 +7,7 @@ const actions = require('../app/actions');
 
 const store = createStore(reducers);
 
-actions.listenForTransactions(store.dispatch);
+actions.listenForStories(store.dispatch);
 
 module.exports = new Map([
     ['/', function index(req, res) {

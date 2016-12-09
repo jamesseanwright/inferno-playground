@@ -1,19 +1,18 @@
 'use strict';
 
-const transactionEmitter = require('../services/transactionEmitter');
+const newsService = require('../services/newsService');
 
 module.exports = {
-    RECEIVE_TRANSACTION: 'RECEIVE_TRANSACTION',
+    RECEIVE_STORY: 'RECEIVE_STORY',
 
-    _receiveTransaction(transaction) {
-        console.log('transaction', transaction);
+    _receiveStory(story) {
         return {
-            type: this.RECEIVE_TRANSACTION,
-            transaction
+            type: this.RECEIVE_STORY,
+            story
         };
     },
 
-    listenForTransactions(dispatch) {
-        transactionEmitter.on('event', t => dispatch(this._receiveTransaction(t)));
+    listenForStories(dispatch) {
+        newsService.addEventListener('message', s => dispatch(this._receiveStory(s)));
     }
 };

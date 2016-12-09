@@ -1,17 +1,17 @@
 'use strict';
 
-const { RECEIVE_TRANSACTION } = require('../actions');
+const { RECEIVE_STORY } = require('../actions');
 
 const initialState = {
     message: 'Hello from Inferno and Redux!',
-    transactions: []
+    stories: []
 };
 
 module.exports = function appReducer(state = initialState, action) {
     switch (action.type) {
-        case RECEIVE_TRANSACTION:
+        case RECEIVE_STORY:
             return Object.assign({}, state, {
-                transactions: state.transactions.concat(action.transaction)
+                stories: state.stories.concat(action.story)
             });
 
         default:
