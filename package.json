@@ -8,7 +8,7 @@
   "scripts": {
     "build-client-js": "mkdir -p dist/assets && browserify dist/app/index.js > dist/assets/index.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build-prod": "babel src --out-dir dist && npm run build-client-js && node dist/server",
+    "prod": "babel src --out-dir dist && npm run build-client-js && node dist/server",
     "watch": "babel src --watch --out-dir dist & nodemon dist/server --watch dist/{app,server}"
   },
   "author": "James Wright <james@jamesswright.co.uk>",
