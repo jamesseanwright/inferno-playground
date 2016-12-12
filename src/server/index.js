@@ -26,4 +26,4 @@ function handleRequest(req, res) {
         });
 };
 
-server.listen(PORT, () => console.log(`Listening on port ${PORT}`));
+server.listen(PORT, () => console.log(`Listening on port ${PORT} in ${process.env.NODE_ENV} mode...`));
