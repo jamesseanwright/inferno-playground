@@ -1,6 +1,6 @@
 'use strict';
 
-const { connect } = require('inferno-redux');
+const { connect } = require('react-redux');
 const App = require('../components/App');
 
 function mapStateToProps(state) {

@@ -13,16 +13,14 @@
   "author": "James Wright <james@jamesswright.co.uk>",
   "license": "ISC",
   "dependencies": {
-    "inferno": "1.0.0-beta31",
-    "inferno-component": "1.0.0-beta31",
-    "inferno-create-element": "1.0.0-beta31",
-    "inferno-redux": "1.0.0-beta31",
-    "inferno-server": "1.0.0-beta31",
+    "react": "15.4.1",
+    "react-dom": "15.4.1",
+    "react-redux": "4.4.6",
     "redux": "3.6.0"
   },
   "devDependencies": {
     "babel-cli": "6.18.0",
-    "babel-plugin-inferno": "1.2.0-beta13",
+    "babel-plugin-transform-react-jsx": "6.8.0",
     "browserify": "13.1.1",
     "nodemon": "1.11.0"
   }

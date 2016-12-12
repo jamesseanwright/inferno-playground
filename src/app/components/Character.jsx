@@ -1,6 +1,6 @@
 'use strict';
 
-const Inferno = require('inferno');
+const React = require('react');
 
 module.exports = function Character({ code }) {
     return (

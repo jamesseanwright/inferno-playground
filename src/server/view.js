@@ -1,7 +1,7 @@
 'use strict';
 
-const Inferno = require('inferno');
-const InfernoServer = require('inferno-server');
+const React = require('react');
+const ReactDOMServer = require('react-dom/server');
 const { createStore, applyMiddleware } = require('redux');
 const reducers = require('../app/reducers');
 const actions = require('../app/actions');
@@ -30,7 +30,7 @@ module.exports = function renderView() {
                 <h1>Unicode Characters</h1>
 
                 <section role="main">
-                    ${InfernoServer.renderToString(createApp(store))}
+                    ${ReactDOMServer.renderToString(createApp(store))}
                 </section>
 
                 <script src="/index.js"></script>
