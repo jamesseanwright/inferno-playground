@@ -1,18 +1,27 @@
 'use strict';
 
-const newsService = require('../services/newsService');
+const START_CHAR = 32;
+const END_CHAR = 1032;
+
+const codes = getCodes();
+
+function getCodes() {
+    const chars = new Array(END_CHAR - START_CHAR);
+
+    for (let i = START_CHAR; i <= END_CHAR - START_CHAR; i++) {
+        chars[i] = i;
+    }
+
+    return chars;
+}
 
 module.exports = {
-    RECEIVE_STORY: 'RECEIVE_STORY',
+    FETCH_CODES: 'FETCH_CODES',
 
-    _receiveStory(story) {
+    fetchCodes() {
         return {
-            type: this.RECEIVE_STORY,
-            story
+            type: this.FETCH_CODES,
+            codes
         };
-    },
-
-    listenForStories(dispatch) {
-        newsService.addEventListener('message', s => dispatch(this._receiveStory(s)));
     }
 };

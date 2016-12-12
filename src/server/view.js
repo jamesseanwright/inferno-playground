@@ -2,9 +2,16 @@
 
 const Inferno = require('inferno');
 const InfernoServer = require('inferno-server');
+const { createStore, applyMiddleware } = require('redux');
+const reducers = require('../app/reducers');
+const actions = require('../app/actions');
 const createApp = require('../app/createApp');
 
-module.exports = function renderView(store) {
+const store = createStore(reducers);
+
+store.dispatch(actions.fetchCodes());
+
+module.exports = function renderView() {
     return `
         <!DOCTYPE html>
         <html>
@@ -19,6 +26,9 @@ module.exports = function renderView(store) {
                         state: ${JSON.stringify(store.getState())}
                     };
                 </script>
+
+                <h1>Unicode Characters</h1>
+
                 <section role="main">
                     ${InfernoServer.renderToString(createApp(store))}
                 </section>

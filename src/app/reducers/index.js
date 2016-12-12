@@ -1,17 +1,17 @@
 'use strict';
 
-const { RECEIVE_STORY } = require('../actions');
+const { FETCH_CODES } = require('../actions');
 
 const initialState = {
     message: 'Hello from Inferno and Redux!',
-    stories: []
+    characters: []
 };
 
 module.exports = function appReducer(state = initialState, action) {
     switch (action.type) {
-        case RECEIVE_STORY:
+        case FETCH_CODES:
             return Object.assign({}, state, {
-                stories: state.stories.concat(action.story)
+                codes: [].concat(action.codes)
             });
 
         default:
