@@ -1,12 +1,5 @@
 'use strict';
 
-/* Cheekily using ws as a polyfill for global
- * WebSocket constructor to keep frontend code
- * isomorphic. */
-const WebSocket = require('ws');
-WebSocket.prototype.addEventListener = WebSocket.prototype.on;
-global.WebSocket = WebSocket;
-
 const http = require('http');
 const url = require('url');
 const routes = require('./routes');
