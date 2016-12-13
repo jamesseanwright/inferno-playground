@@ -36,5 +36,5 @@ module.exports = function renderView() {
                 <script src="/index.js"></script>
             </body>
         </html>
-    `.trim().replace(/\s{4,}/g, ''); // Minify HTML
+    `;
 };

@@ -9,7 +9,7 @@ function getCodes() {
     const chars = new Array(END_CHAR - START_CHAR);
 
     for (let i = START_CHAR; i <= END_CHAR - START_CHAR; i++) {
-        chars[i] = i;
+        chars[i - START_CHAR] = i;
     }
 
     return chars;
